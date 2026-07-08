@@ -504,15 +504,14 @@ export default function Home() {
             className="flex justify-center"
           >
             <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="px-8 py-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
+              whileHover={{ scale: 1.05, y: -5, boxShadow: '0 0 30px rgba(220,38,38,0.4)' }}
+              className="p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-white tracking-wider">
-                RECOIL Group
-              </div>
-              <div className="text-sm text-gray-400 mt-2 text-center">
-                Gaming & Entertainment
-              </div>
+              <img
+                src="/recoil-logo.png.png"
+                alt="RECOIL Group"
+                className="w-32 sm:w-40 md:w-48 h-auto object-contain"
+              />
             </motion.div>
           </motion.div>
         </motion.div>
