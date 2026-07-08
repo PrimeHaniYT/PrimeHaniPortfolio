@@ -33,6 +33,7 @@ export default function Home() {
   const projects = [
     { id: 'project1', name: 'Project 1', video: '/project1.mp4.mp4' },
     { id: 'project2', name: 'Project 2', video: '/project2.mp4.mp4' },
+    { id: 'project3', name: 'RECOIL Group – Sponsored Gameplay Edit', video: '/project3.mp4.mp4', description: 'Sponsored gameplay edit created for RECOIL Group featuring engaging pacing, cinematic transitions, subtitles, sound design, and high-retention editing.' },
   ];
 
   // Check if mobile device
@@ -264,12 +265,16 @@ export default function Home() {
                     scale: [1, 1.05, 1],
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 rounded-full bg-red-600/20 blur-xl"
+                  className="absolute inset-0 rounded-full bg-red-600/20 blur-xl -inset-2"
                 />
                 <img
                   src="/Profile.png.png"
                   alt="PrimeHani"
-                  className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full border-4 border-red-500 mx-auto lg:mx-0 object-cover shadow-2xl shadow-red-500/30"
+                  className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full border-4 border-red-500 mx-auto lg:mx-0 object-cover shadow-2xl shadow-red-500/30"
+                  onError={(e) => {
+                    console.error('Image failed to load:', e);
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
               </motion.div>
               <motion.h1
@@ -473,6 +478,55 @@ export default function Home() {
         className="w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent my-20"
       />
 
+      {/* Trusted By Section */}
+      <section id="trusted-by" className="w-full py-16 px-4 bg-black relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto w-full"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-400"
+          >
+            Trusted By
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="px-8 py-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
+            >
+              <div className="text-2xl sm:text-3xl font-bold text-white tracking-wider">
+                RECOIL Group
+              </div>
+              <div className="text-sm text-gray-400 mt-2 text-center">
+                Gaming & Entertainment
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Section Divider */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent my-20"
+      />
+
       {/* About Me Section */}
       <section id="about" className="w-full py-20 px-4 bg-gradient-to-b from-black to-red-950/10 relative overflow-hidden">
         {/* Animated background elements */}
@@ -595,7 +649,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.05, y: -5, boxShadow: '0 0 25px rgba(220,38,38,0.3)' }}
                 className="group p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
               >
                 <motion.div
@@ -653,7 +707,8 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="text-center p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -870,7 +925,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05, y: -8 }}
+                whileHover={{ scale: 1.05, y: -8, boxShadow: '0 0 30px rgba(220,38,38,0.4)' }}
                 className="group relative aspect-[9/16] bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 overflow-hidden hover:border-red-500 transition-all cursor-pointer"
                 onMouseEnter={() => handleVideoHover(project.id)}
                 onMouseLeave={() => handleVideoLeave(project.id)}
@@ -897,7 +952,18 @@ export default function Home() {
                   >
                     Project
                   </motion.span>
-                  <h3 className="text-base font-semibold text-white">{project.name}</h3>
+                  <h3 className="text-base font-semibold text-white mb-1">{project.name}</h3>
+                  {project.description && (
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + index * 0.2 }}
+                      className="text-xs text-gray-400 line-clamp-2"
+                    >
+                      {project.description}
+                    </motion.p>
+                  )}
                 </div>
               </motion.div>
             ))}
