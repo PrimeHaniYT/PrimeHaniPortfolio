@@ -14,7 +14,7 @@ export default function Home() {
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const fullText = 'Professional Video Editor';
+  const fullText = 'Premium Content Creator';
 
   // Typing effect
   useEffect(() => {
@@ -31,9 +31,9 @@ export default function Home() {
   }, []);
 
   const projects = [
+    { id: 'project3', name: 'RECOIL Group – Sponsored Gameplay Edit', video: '/project3.mp4', description: 'Sponsored gameplay edit created for RECOIL Group featuring engaging pacing, cinematic transitions, subtitles, sound design, and high-retention editing.', sponsored: true },
     { id: 'project1', name: 'Project 1', video: '/project1.mp4.mp4' },
     { id: 'project2', name: 'Project 2', video: '/project2.mp4.mp4' },
-    { id: 'project3', name: 'RECOIL Group – Sponsored Gameplay Edit', video: '/project3.mp4.mp4', description: 'Sponsored gameplay edit created for RECOIL Group featuring engaging pacing, cinematic transitions, subtitles, sound design, and high-retention editing.' },
   ];
 
   // Check if mobile device
@@ -86,7 +86,9 @@ export default function Home() {
   const handleVideoHover = (id: string) => {
     setHoveredVideo(id);
     if (videoRefs.current[id]) {
-      videoRefs.current[id]?.play();
+      videoRefs.current[id]?.play().catch((e) => {
+        console.error(`Failed to play video ${id}:`, e);
+      });
     }
   };
 
@@ -316,17 +318,35 @@ export default function Home() {
                 />
               </motion.p>
 
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="text-sm sm:text-base text-gray-400 mb-6 max-w-md"
+              >
+                Professional Video Editor • Sponsored Content • Brand Collaborations
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.9 }}
+                className="text-sm sm:text-base text-gray-300 mb-6 max-w-lg leading-relaxed"
+              >
+                I create high-performing gaming content that reaches hundreds of thousands of viewers while helping brands and game developers grow their communities through engaging sponsored content.
+              </motion.p>
+
               {/* Stats Badges */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
+                transition={{ duration: 1, delay: 1 }}
                 className="flex flex-wrap gap-3 justify-center lg:justify-start mb-6"
               >
                 {[
                   {
-                    icon: '🎬',
-                    label: 'Professional Video Editor',
+                    icon: '�',
+                    label: 'Gaming Creator',
                     highlight: false,
                   },
                   {
@@ -335,8 +355,8 @@ export default function Home() {
                     highlight: true,
                   },
                   {
-                    icon: '🎯',
-                    label: 'Short-Form Specialist',
+                    icon: '🤝',
+                    label: 'Brand Partner',
                     highlight: false,
                   },
                 ].map((badge, index) => (
@@ -492,10 +512,19 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-400"
+            className="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-400"
           >
-            Trusted By
+            Trusted by Game Developers & Brands
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-gray-400 text-center mb-8 max-w-2xl mx-auto"
+          >
+            Successfully partnered with RECOIL Group for sponsored promotional content.
+          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -569,16 +598,25 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6"
           >
-            I'm a professional video editor with a passion for creating engaging short-form content that captivates audiences and drives results.
+            I'm a <span className="text-red-400 font-semibold">Gaming Content Creator</span> and <span className="text-red-400 font-semibold">Professional Video Editor</span> passionate about creating high-performing content that captivates audiences and delivers results for brands.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6"
+          >
+            Specializing in <span className="text-red-400 font-semibold">Roblox</span> and <span className="text-red-400 font-semibold">Fortnite</span> content, I create engaging short-form videos that reach hundreds of thousands of viewers. My expertise includes sponsored content, high viewer retention editing, and professional brand collaborations.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-gray-300 leading-relaxed"
           >
-            Specializing in <span className="text-red-400 font-semibold">YouTube Shorts</span>, <span className="text-red-400 font-semibold">TikTok</span>, and <span className="text-red-400 font-semibold">Instagram Reels</span>, I transform raw footage into polished, high-retention videos that stand out in the crowded social media landscape.
+            With a focus on fast turnaround, premium quality, and professional communication, I help game developers and brands grow their communities through authentic, high-impact content.
           </motion.p>
         </motion.div>
       </section>
@@ -592,8 +630,8 @@ export default function Home() {
         className="w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent my-20"
       />
 
-      {/* Why Choose Me Section */}
-      <section id="why-choose" className="w-full py-20 px-4 bg-black relative overflow-hidden">
+      {/* Services Section */}
+      <section id="services" className="w-full py-20 px-4 bg-black relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -608,7 +646,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl font-bold text-center mb-4"
           >
-            Why <span className="text-red-500">Choose</span> Me
+            My <span className="text-red-500">Services</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -617,29 +655,49 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
           >
-            Delivering premium video editing services with a focus on quality and results.
+            Premium content creation and video editing services for brands and game developers.
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: '⚡',
-                title: 'Fast Delivery',
-                description: 'Quick turnaround without compromising quality',
+                icon: '🎬',
+                title: 'Sponsored YouTube Shorts',
+                description: 'High-impact sponsored content for your brand',
               },
               {
-                icon: '📈',
-                title: 'High Retention',
-                description: 'Edits designed to keep viewers watching',
+                icon: '📱',
+                title: 'Sponsored TikTok Videos',
+                description: 'Viral-ready TikTok content for maximum reach',
               },
               {
-                icon: '✨',
-                title: 'Cinematic Effects',
-                description: 'Professional-grade visual effects and transitions',
+                icon: '🎮',
+                title: 'Gameplay Showcases',
+                description: 'Engaging gameplay highlights and montages',
               },
               {
-                icon: '🎯',
-                title: 'Pro Quality',
-                description: 'Industry-standard editing and color grading',
+                icon: '✂️',
+                title: 'Professional Video Editing',
+                description: 'Premium editing with cinematic effects',
+              },
+              {
+                icon: '🚀',
+                title: 'Brand Promotions',
+                description: 'Strategic promotional content for growth',
+              },
+              {
+                icon: '🎥',
+                title: 'Trailer Editing',
+                description: 'Compelling trailers that drive conversions',
+              },
+              {
+                icon: '📊',
+                title: 'Content Strategy',
+                description: 'Data-driven content planning and optimization',
+              },
+              {
+                icon: '🖼️',
+                title: 'Thumbnail Design',
+                description: 'Eye-catching thumbnails for higher CTR',
               },
             ].map((feature, index) => (
               <motion.div
@@ -695,10 +753,10 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: '13K+', label: 'YouTube Subscribers', icon: '📺' },
+              { value: '13K+', label: 'Subscribers', icon: '📺' },
               { value: '1.7M+', label: 'Total Views', icon: '👁️' },
-              { value: '100+', label: 'Videos Edited', icon: '🎬' },
-              { value: '4+', label: 'Years Experience', icon: '⏱️' },
+              { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
+              { value: 'Millions', label: 'Impressions', icon: '📈' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -939,8 +997,23 @@ export default function Home() {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
+                  onError={(e) => {
+                    console.error(`Video ${project.id} failed to load:`, e);
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all" />
+                {project.sponsored && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.2 }}
+                    className="absolute top-3 right-3 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full shadow-lg shadow-red-500/50"
+                  >
+                    Sponsored
+                  </motion.div>
+                )}
                 <div className="absolute inset-0 flex flex-col justify-end p-4">
                   <motion.span
                     initial={{ opacity: 0 }}
@@ -949,7 +1022,7 @@ export default function Home() {
                     transition={{ delay: 0.4 + index * 0.2 }}
                     className="text-red-500 text-xs font-medium mb-1"
                   >
-                    Project
+                    {project.sponsored ? 'Sponsored Project' : 'Project'}
                   </motion.span>
                   <h3 className="text-base font-semibold text-white mb-1">{project.name}</h3>
                   {project.description && (
@@ -995,7 +1068,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-400 mb-12 max-w-2xl mx-auto"
           >
-            Ready to bring your vision to life? Get in touch through any of these platforms.
+            Available for Sponsorships, Brand Deals, Promotional Campaigns, Professional Video Editing and Long-Term Partnerships.
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
