@@ -751,10 +751,11 @@ export default function Home() {
           >
             My <span className="text-red-500">Impact</span>
           </motion.h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               { value: '14K+', label: 'Subscribers', icon: '📺' },
               { value: '4M+', label: 'Total Views', icon: '👁️' },
+              { value: '100K–1M+', label: 'Views per Short', icon: '🎬' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
             ].map((stat, index) => (
@@ -797,6 +798,15 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-gray-400 text-center mt-8 max-w-2xl mx-auto"
+          >
+            My gaming Shorts consistently reach between 100,000 and 1,000,000+ views, helping games and brands reach highly engaged audiences.
+          </motion.p>
         </motion.div>
       </section>
 
