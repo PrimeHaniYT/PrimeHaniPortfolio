@@ -351,7 +351,7 @@ export default function Home() {
                   },
                   {
                     icon: '📺',
-                    label: '13K+ Subscribers',
+                    label: '14K+ Subscribers',
                     highlight: true,
                   },
                   {
@@ -753,8 +753,8 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: '13K+', label: 'Subscribers', icon: '📺' },
-              { value: '1.7M+', label: 'Total Views', icon: '👁️' },
+              { value: '14K+', label: 'Subscribers', icon: '📺' },
+              { value: '4M+', label: 'Total Views', icon: '👁️' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
             ].map((stat, index) => (
@@ -870,14 +870,32 @@ export default function Home() {
         className="w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent my-20"
       />
 
-      {/* Client Process Section */}
+      {/* Brand Collaboration Process Section */}
       <section id="process" className="w-full py-20 px-4 bg-gradient-to-b from-black to-red-950/10 relative overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-20 left-10 w-72 h-72 bg-red-600/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -180, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+          className="absolute bottom-20 right-10 w-56 h-56 bg-red-900/5 rounded-full blur-3xl"
+        />
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto w-full"
+          className="max-w-7xl mx-auto w-full relative z-10"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -886,54 +904,105 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl font-bold text-center mb-4"
           >
-            My <span className="text-red-500">Process</span>
+            Brand <span className="text-red-500">Collaboration</span> Process
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
+            className="text-gray-400 text-center mb-16 max-w-2xl mx-auto"
           >
-            A streamlined workflow from concept to delivery.
+            A professional workflow for sponsored content and brand partnerships.
           </motion.p>
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-red-500/50 via-red-500/30 to-transparent hidden md:block" />
-            
-            <div className="space-y-12">
-              {[
-                { step: 1, title: 'Contact', description: 'Reach out with your project details' },
-                { step: 2, title: 'Send Footage', description: 'Share your raw video files' },
-                { step: 3, title: 'Editing', description: 'I craft your video with precision' },
-                { step: 4, title: 'Review', description: 'You provide feedback and revisions' },
-                { step: 5, title: 'Final Delivery', description: 'Receive your polished final video' },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                >
-                  <div className={`flex-1 text-center md:text-${index % 2 === 0 ? 'right' : 'left'}`}>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      className="inline-block p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all"
-                    >
-                      <div className="text-3xl font-bold text-red-500 mb-2">0{item.step}</div>
-                      <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray-400">{item.description}</p>
-                    </motion.div>
-                  </div>
-                  <div className="hidden md:flex w-12 h-12 items-center justify-center bg-red-600 rounded-full border-4 border-black z-10">
-                    <span className="text-white font-bold">{item.step}</span>
-                  </div>
-                  <div className="flex-1" />
-                </motion.div>
-              ))}
-            </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                step: '01',
+                icon: '💬',
+                title: 'Brand Contact',
+                description: 'A game developer or brand contacts me, or I reach out for a sponsorship opportunity.',
+              },
+              {
+                step: '02',
+                icon: '🤝',
+                title: 'Agreement & Payment',
+                description: 'We agree on pricing, deliverables, posting schedule, and payment. Payment is completed before publishing the sponsored content.',
+                highlight: true,
+              },
+              {
+                step: '03',
+                icon: '🎮',
+                title: 'Content Creation',
+                description: 'I record premium gameplay, edit a high-retention vertical video, and ensure the content matches the sponsor\'s goals.',
+              },
+              {
+                step: '04',
+                icon: '✅',
+                title: 'Review & Approval',
+                description: 'The sponsor reviews the video if required and approves the final version before publication.',
+              },
+              {
+                step: '05',
+                icon: '🚀',
+                title: 'Publishing & Results',
+                description: 'I publish the sponsored content across my platforms and provide performance statistics when needed.',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  boxShadow: item.highlight 
+                    ? '0 0 40px rgba(220,38,38,0.5)' 
+                    : '0 0 30px rgba(220,38,38,0.3)'
+                }}
+                className={`group relative p-8 bg-gray-900/50 backdrop-blur-sm rounded-2xl border transition-all cursor-pointer ${
+                  item.highlight 
+                    ? 'border-red-500/50 hover:border-red-500' 
+                    : 'border-red-900/30 hover:border-red-500/50'
+                }`}
+              >
+                {item.highlight && (
+                  <motion.div
+                    animate={{
+                      boxShadow: ['0 0 20px rgba(220,38,38,0.3)', '0 0 40px rgba(220,38,38,0.5)', '0 0 20px rgba(220,38,38,0.3)'],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute inset-0 rounded-2xl bg-red-600/5 blur-xl -z-10"
+                  />
+                )}
+                <div className="flex items-start gap-4 mb-4">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="text-4xl"
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <div className="text-2xl font-bold text-red-500">Step {item.step}</div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                {item.highlight && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="mt-4 pt-4 border-t border-red-500/30"
+                  >
+                    <span className="text-xs text-red-400 font-semibold">⚡ Payment required before upload</span>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </section>
