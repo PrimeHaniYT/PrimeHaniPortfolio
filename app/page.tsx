@@ -351,7 +351,7 @@ export default function Home() {
                   },
                   {
                     icon: '📺',
-                    label: '14K+ Subscribers',
+                    label: '15K+ Subscribers',
                     highlight: true,
                   },
                   {
@@ -499,13 +499,31 @@ export default function Home() {
       />
 
       {/* Trusted By Section */}
-      <section id="trusted-by" className="w-full py-16 px-4 bg-black relative overflow-hidden">
+      <section id="trusted-by" className="w-full py-20 px-4 bg-black relative overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-10 right-10 w-64 h-64 bg-red-600/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -180, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+          className="absolute bottom-10 left-10 w-48 h-48 bg-red-900/5 rounded-full blur-3xl"
+        />
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto w-full"
+          className="max-w-7xl mx-auto w-full relative z-10"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -521,28 +539,54 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-gray-400 text-center mb-8 max-w-2xl mx-auto"
+            className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
           >
-            Successfully partnered with RECOIL Group for sponsored promotional content.
+            Successfully partnered with industry-leading game developers and brands for sponsored promotional content.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5, boxShadow: '0 0 30px rgba(220,38,38,0.4)' }}
-              className="p-6 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
-            >
-              <img
-                src="/recoil-logo.png.png"
-                alt="RECOIL Group"
-                className="w-32 sm:w-40 md:w-48 h-auto object-contain"
-              />
-            </motion.div>
-          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                name: 'RECOIL Group',
+                logo: '/recoil-logo.png.png',
+                description: 'Sponsored gameplay edit featuring engaging pacing and cinematic transitions.',
+              },
+              {
+                name: 'CloneWars RP',
+                logo: '/clonewars-rp.png',
+                description: 'Promotional content showcasing gameplay and community features.',
+              },
+            ].map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  boxShadow: '0 0 40px rgba(220,38,38,0.4)'
+                }}
+                className="group p-8 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-900/30 hover:border-red-500/50 transition-all cursor-pointer"
+              >
+                <div className="flex flex-col items-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="mb-4"
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="w-32 sm:w-40 md:w-48 h-auto object-contain"
+                    />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{partner.name}</h3>
+                  <p className="text-gray-400 text-sm text-center">{partner.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -753,8 +797,8 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { value: '14K+', label: 'Subscribers', icon: '📺' },
-              { value: '4M+', label: 'Total Views', icon: '👁️' },
+              { value: '15K+', label: 'Subscribers', icon: '📺' },
+              { value: '6M+', label: 'Total Views', icon: '👁️' },
               { value: '100K–1M+', label: 'Views per Short', icon: '🎬' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
