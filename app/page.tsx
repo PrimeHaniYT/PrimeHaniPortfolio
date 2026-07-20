@@ -32,6 +32,7 @@ export default function Home() {
 
   const projects = [
     { id: 'project3', name: 'RECOIL Group – Sponsored Gameplay Edit', video: '/project3.mp4', description: 'Sponsored gameplay edit created for RECOIL Group featuring engaging pacing, cinematic transitions, subtitles, sound design, and high-retention editing.', sponsored: true },
+    { id: 'project4', name: 'CloneWars RP – Sponsored Promotional Short', video: '/clonewars-rp-promo.mp4', description: 'A sponsored promotional Short created for CloneWars RP (CWRP), designed to showcase the server through cinematic gameplay, engaging pacing, smooth transitions, and high-retention editing optimized for YouTube Shorts.', sponsored: true },
     { id: 'project1', name: 'Project 1', video: '/project1.mp4.mp4' },
     { id: 'project2', name: 'Project 2', video: '/project2.mp4.mp4' },
   ];
