@@ -352,7 +352,7 @@ export default function Home() {
                   },
                   {
                     icon: '📺',
-                    label: '15K+ Subscribers',
+                    label: '17.2K+ Subscribers',
                     highlight: true,
                   },
                   {
@@ -798,8 +798,8 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { value: '15K+', label: 'Subscribers', icon: '📺' },
-              { value: '6M+', label: 'Total Views', icon: '👁️' },
+              { value: '17.2K+', label: 'Subscribers', icon: '📺' },
+              { value: '8M+', label: 'Total Views', icon: '👁️' },
               { value: '100K–1M+', label: 'Views per Short', icon: '🎬' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
