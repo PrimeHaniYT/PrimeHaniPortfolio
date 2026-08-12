@@ -352,7 +352,7 @@ export default function Home() {
                   },
                   {
                     icon: '📺',
-                    label: '17.2K+ Subscribers',
+                    label: '22K+ Subscribers',
                     highlight: true,
                   },
                   {
@@ -798,9 +798,9 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { value: '17.2K+', label: 'Subscribers', icon: '📺' },
-              { value: '8M+', label: 'Total Views', icon: '👁️' },
-              { value: '100K–1M+', label: 'Views per Short', icon: '🎬' },
+              { value: '22K+', label: 'Subscribers', icon: '📺' },
+              { value: '17M+', label: 'Total Views', icon: '👁️' },
+              { value: '200K–2.7M+', label: 'Views per Short', icon: '🎬' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
             ].map((stat, index) => (
@@ -850,7 +850,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-gray-400 text-center mt-8 max-w-2xl mx-auto"
           >
-            My gaming Shorts consistently reach between 100,000 and 1,000,000+ views, helping games and brands reach highly engaged audiences.
+            My gaming Shorts consistently reach between 200,000 and 2,700,000+ views, helping games and brands reach highly engaged audiences.
           </motion.p>
         </motion.div>
       </section>
