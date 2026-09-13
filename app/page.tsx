@@ -33,8 +33,6 @@ export default function Home() {
   const projects = [
     { id: 'project3', name: 'RECOIL Group – Sponsored Gameplay Edit', video: '/project3.mp4', description: 'Sponsored gameplay edit created for RECOIL Group featuring engaging pacing, cinematic transitions, subtitles, sound design, and high-retention editing.', sponsored: true },
     { id: 'project4', name: 'CloneWars RP – Sponsored Promotional Short', video: '/clonewars-rp-promo.mp4', description: 'A sponsored promotional Short created for CloneWars RP (CWRP), designed to showcase the server through cinematic gameplay, engaging pacing, smooth transitions, and high-retention editing optimized for YouTube Shorts.', sponsored: true },
-    { id: 'project1', name: 'Project 1', video: '/project1.mp4.mp4' },
-    { id: 'project2', name: 'Project 2', video: '/project2.mp4.mp4' },
   ];
 
   // Check if mobile device
@@ -352,7 +350,7 @@ export default function Home() {
                   },
                   {
                     icon: '📺',
-                    label: '22K+ Subscribers',
+                    label: '50K+ Subscribers',
                     highlight: true,
                   },
                   {
@@ -798,9 +796,9 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { value: '22K+', label: 'Subscribers', icon: '📺' },
-              { value: '17M+', label: 'Total Views', icon: '👁️' },
-              { value: '200K–2.7M+', label: 'Views per Short', icon: '🎬' },
+              { value: '50K+', label: 'Subscribers', icon: '📺' },
+              { value: '21M+', label: 'Total Views', icon: '👁️' },
+              { value: '200K–2.9M+', label: 'Views per Short', icon: '🎬' },
               { value: '10+', label: 'Brand Collaborations', icon: '🤝' },
               { value: 'Millions', label: 'Impressions', icon: '📈' },
             ].map((stat, index) => (
