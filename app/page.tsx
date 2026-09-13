@@ -1214,8 +1214,8 @@ export default function Home() {
               },
               {
                 name: 'Email',
-                handle: 'haniasim533@gmail.com',
-                href: 'mailto:haniasim533@gmail.com',
+                handle: 'haniasim53@gmail.com',
+                href: 'mailto:haniasim53@gmail.com',
                 color: 'bg-red-600',
                 icon: (
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
